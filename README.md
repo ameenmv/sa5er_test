@@ -9,10 +9,7 @@
 [![npm version](https://img.shields.io/npm/v/sa5er-cli.svg?style=flat-square)](https://www.npmjs.com/package/sa5er-cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18-green.svg?style=flat-square)](https://nodejs.org)
-
-<br>
-
-<img width="700" alt="Sa5er Demo" src="https://i.imgur.com/placeholder.png">
+[![GitHub](https://img.shields.io/github/stars/ameenmv/sa5er?style=flat-square)](https://github.com/ameenmv/sa5er)
 
 </div>
 

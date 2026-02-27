@@ -1,11 +1,11 @@
 {
   "name": "sa5er-cli",
   "version": "1.0.0",
-  "description": "CLI wrapper that explains terminal errors with sarcastic Egyptian Arabic humor, powered by Gemini AI 🇪🇬",
+  "description": "CLI wrapper that explains terminal errors with sarcastic Egyptian Arabic humor, powered by AI (Groq/Gemini) 🇪🇬",
   "type": "module",
   "main": "src/index.js",
   "bin": {
-    "sa5er": "./bin/sa5er.js"
+    "sa5er": "bin/sa5er.js"
   },
   "scripts": {
     "start": "node bin/sa5er.js",
@@ -22,8 +22,16 @@
     "ai",
     "developer-tools"
   ],
-  "author": "",
+  "author": "ameenmv",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ameenmv/sa5er.git"
+  },
+  "homepage": "https://github.com/ameenmv/sa5er#readme",
+  "bugs": {
+    "url": "https://github.com/ameenmv/sa5er/issues"
+  },
   "files": [
     "bin/",
     "src/",
