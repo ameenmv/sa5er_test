@@ -1,0 +1,42 @@
+{
+  "name": "sa5er-cli",
+  "version": "1.0.0",
+  "description": "CLI wrapper that explains terminal errors with sarcastic Egyptian Arabic humor, powered by Gemini AI 🇪🇬",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "sa5er": "./bin/sa5er.js"
+  },
+  "scripts": {
+    "start": "node bin/sa5er.js",
+    "test": "node --test src/**/*.test.js"
+  },
+  "keywords": [
+    "cli",
+    "terminal",
+    "error",
+    "egyptian",
+    "arabic",
+    "sarcastic",
+    "gemini",
+    "ai",
+    "developer-tools"
+  ],
+  "author": "",
+  "license": "MIT",
+  "files": [
+    "bin/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "arabic-reshaper": "^1.1.0",
+    "bidi-js": "^1.0.3",
+    "commander": "^12.1.0",
+    "picocolors": "^1.1.1"
+  }
+}

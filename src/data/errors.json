@@ -1,0 +1,282 @@
+[
+  {
+    "pattern": "command not found|is not recognized as an internal or external command",
+    "response": {
+      "sarcasm": "يا باشا، الكمبيوتر مش عبيط هو بس مش لاقي الأمر ده أصلاً! 😂 إنت كاتب اسم أمر مش موجود على الجهاز. يا إما مش مثبّت، يا إما مش في الـ PATH.",
+      "fix": "1. تأكد إن البرنامج متثبّت فعلاً.\n2. لو متثبّت، أضفه للـ PATH.\n3. جرب تكتب الاسم صح، ممكن يكون فيه typo."
+    }
+  },
+  {
+    "pattern": "ENOENT|no such file or directory",
+    "response": {
+      "sarcasm": "هو إنت بتدوّر على ملف في عالم موازي؟ 😅 الملف أو الفولدر اللي إنت كاتبه مش موجود خالص!",
+      "fix": "1. تأكد من المسار (path) اللي كاتبه.\n2. ممكن تكون في فولدر غلط، جرب `ls` أو `dir` تشوف إنت فين.\n3. لو الملف المفروض يتعمل، شغّل الأمر اللي بيعمله الأول."
+    }
+  },
+  {
+    "pattern": "EADDRINUSE|address already in use",
+    "response": {
+      "sarcasm": "البورت محجوز يا معلّم! 😤 فيه حد تاني قاعد على البورت ده قبلك. هو إنت فاكر البورت كرسي في القهوة؟",
+      "fix": "1. شوف مين شاغل البورت:\n   - Linux/Mac: `lsof -i :<PORT>`\n   - Windows: `netstat -ano | findstr :<PORT>`\n2. اقتله بالـ PID: `kill -9 <PID>` أو `taskkill /PID <PID> /F`\n3. أو غيّر البورت في الكود بتاعك."
+    }
+  },
+  {
+    "pattern": "EACCES|permission denied",
+    "response": {
+      "sarcasm": "إنت بتحاول تدخل مكان مش من حقك يا حبيبي! 🚫 الصلاحيات مش معاك. هو إنت فاكر نفسك root؟",
+      "fix": "1. على Linux/Mac جرب: `sudo <your command>`\n2. على Windows: افتح الـ Terminal كـ Administrator.\n3. لو ملف، غيّر الصلاحيات: `chmod 755 <file>`"
+    }
+  },
+  {
+    "pattern": "MODULE_NOT_FOUND|Cannot find module",
+    "response": {
+      "sarcasm": "الموديول ده اختفى زي ما بتختفي السحلية ورا التلاجة! 🦎 إنت عامل import لحاجة مش موجودة.",
+      "fix": "1. جرب: `npm install` أو `npm install <package-name>`\n2. تأكد من اسم الموديول في الـ import/require.\n3. لو ملف محلي، تأكد من المسار النسبي."
+    }
+  },
+  {
+    "pattern": "(npm ERR!|npm error).*[Mm]issing script",
+    "response": {
+      "sarcasm": "يا عم، إنت بتشغّل سكريبت مش موجود في الـ package.json! 😂 هو إنت بتأل على حد مش عايش في البيت؟",
+      "fix": "1. افتح `package.json` وشوف الـ scripts الموجودة.\n2. تأكد من اسم السكريبت اللي بتشغله.\n3. جرب `npm run` من غير حاجة عشان تشوف كل السكريبتات المتاحة."
+    }
+  },
+  {
+    "pattern": "(npm ERR!|npm error).*ERESOLVE|peer dep|dependency conflict",
+    "response": {
+      "sarcasm": "الـ dependencies بتتخانق مع بعض زي أخواتك على الريموت! 📺😂 فيه conflict بين الباكدجات.",
+      "fix": "1. جرب: `npm install --legacy-peer-deps`\n2. أو: `npm install --force`\n3. أو امسح `node_modules` و `package-lock.json` وابدأ من الأول:\n   `rm -rf node_modules package-lock.json && npm install`"
+    }
+  },
+  {
+    "pattern": "SyntaxError|Unexpected token|Unexpected identifier",
+    "response": {
+      "sarcasm": "فيه حاجة في الكود بتاعك مش مظبوطة يا هندسة! 🤦 Syntax Error يعني إنت كاتب حاجة الكمبيوتر مش فاهمها. هو إنت بتكلمه بالعربي؟",
+      "fix": "1. روح على السطر اللي في الـ error وشوف الغلط.\n2. تأكد من الأقواس والفواصل والنقط.\n3. ممكن يكون فيه comma أو bracket ناقص."
+    }
+  },
+  {
+    "pattern": "ReferenceError|is not defined",
+    "response": {
+      "sarcasm": "بتنادي على متغير مش معرّف! ده زي ما تنادي على واحد في الشارع باسم غلط. 😅",
+      "fix": "1. تأكد إنك عرّفت المتغير بـ `let`, `const`, أو `var`.\n2. تأكد من الـ scope - ممكن يكون معرّف في مكان تاني.\n3. تأكد من الـ spelling."
+    }
+  },
+  {
+    "pattern": "TypeError|Cannot read propert|is not a function|is not iterable",
+    "response": {
+      "sarcasm": "يا صديقي، إنت بتحاول تعمل حاجة على قيمة مش مناسبة! 😂 زي ما تحاول تعصر موية من حجر!",
+      "fix": "1. تأكد من نوع المتغير (`typeof` أو `console.log`).\n2. لو `null` أو `undefined`، تأكد إن الداتا بتوصل صح.\n3. استخدم optional chaining: `obj?.property`"
+    }
+  },
+  {
+    "pattern": "ETIMEDOUT|ECONNREFUSED|ECONNRESET|network|fetch failed",
+    "response": {
+      "sarcasm": "الإنترنت واقع ولا السيرفر نايم؟ 🌐😴 مش قادر يوصل للسيرفر اللي إنت عايزه.",
+      "fix": "1. تأكد من الإنترنت عندك.\n2. تأكد إن السيرفر شغال.\n3. تأكد من الـ URL أو الـ port.\n4. لو proxy، تأكد من إعدادات الـ proxy."
+    }
+  },
+  {
+    "pattern": "ENOMEM|out of memory|heap out of memory|JavaScript heap",
+    "response": {
+      "sarcasm": "الرامات خلصت يا باشا! 💾 البرنامج بياكل ذاكرة زي ما بتاكل كشري في رمضان!",
+      "fix": "1. زوّد الـ memory limit:\n   `node --max-old-space-size=4096 <script.js>`\n2. تأكد إنك مش بتعمل memory leak.\n3. استخدم streams بدل ما تحمّل كل حاجة في الذاكرة مرة واحدة."
+    }
+  },
+  {
+    "pattern": "ENOSPC|no space left on device",
+    "response": {
+      "sarcasm": "الهارد اتملى يا حبيبي! 💿 إنت مخزّن أفلام ولا إيه؟ مفيش مساحة فاضية!",
+      "fix": "1. امسح الملفات اللي مش محتاجها.\n2. جرب: `df -h` عشان تشوف المساحة.\n3. نضّف الـ cache: `npm cache clean --force`\n4. امسح `node_modules` من المشاريع القديمة."
+    }
+  },
+  {
+    "pattern": "ERR_REQUIRE_ESM|require\\(\\) of ES Module|Must use import",
+    "response": {
+      "sarcasm": "يا عم إنت خالط ESM مع CommonJS! 😂 ده زي ما تحط بنزين في عربية ديزل!",
+      "fix": "1. أضف `\"type\": \"module\"` في `package.json` لو عايز ESM.\n2. أو غيّر الامتداد لـ `.mjs`.\n3. لو مش عايز تغيّر، استخدم `import()` الـ dynamic بدل `require()`."
+    }
+  },
+  {
+    "pattern": "git.*conflict|CONFLICT|Merge conflict",
+    "response": {
+      "sarcasm": "عندك merge conflict يا معلّم! 🤼 إنت وزميلك عدّلتوا نفس السطر. هو ده مش version control، ده ميدان حرب!",
+      "fix": "1. افتح الملفات اللي فيها conflict وحل الـ `<<<<<<<` و `>>>>>>>` marks.\n2. بعد ما تحل، عمل:\n   `git add .`\n   `git commit`\n3. أو لو عايز تلغي الـ merge: `git merge --abort`"
+    }
+  },
+  {
+    "pattern": "fatal: not a git repository",
+    "response": {
+      "sarcasm": "يا باشا، إنت مش في git repo أصلاً! 😂 ده زي ما تطلب قهوة في صيدلية!",
+      "fix": "1. تأكد إنك في الفولدر الصح.\n2. لو عايز تعمل repo جديد: `git init`\n3. أو لو عايز تنزل repo موجود: `git clone <url>`"
+    }
+  },
+  {
+    "pattern": "Error: listen EACCES.*bind|EACCES.*listen",
+    "response": {
+      "sarcasm": "بتحاول تفتح بورت محتاج صلاحيات يا حبيبي! 🔒 البورتات تحت 1024 محتاجة root!",
+      "fix": "1. استخدم بورت فوق 1024 (مثلاً 3000 أو 8080).\n2. أو شغّل بـ `sudo`.\n3. أو على Linux: `sudo setcap 'cap_net_bind_service=+ep' $(which node)`"
+    }
+  },
+  {
+    "pattern": "Maximum call stack size exceeded",
+    "response": {
+      "sarcasm": "عندك infinite recursion يا هندسة! 🔄😂 الفانكشن بتنادي نفسها لحد ما الـ stack اتفجّر! ده زي واحد بيلف في نفس الشارع وفاكر هيوصل!",
+      "fix": "1. تأكد من الـ base case في الـ recursive function.\n2. تأكد مفيش circular dependency بين الموديولز.\n3. لو الداتا كبيرة، استخدم iteration بدل recursion."
+    }
+  },
+  {
+    "pattern": "CORS|Access-Control-Allow-Origin|cross-origin",
+    "response": {
+      "sarcasm": "CORS بيقولك ممنوع الدخول! 🚧 ده زي البواب اللي مش بيسيبك تطلع. السيرفر مش سامح للـ frontend يكلمه!",
+      "fix": "1. على السيرفر، أضف CORS headers:\n   `Access-Control-Allow-Origin: *` (للتطوير فقط)\n2. لو Express: `app.use(cors())`\n3. أو استخدم proxy في الـ dev server بتاعك."
+    }
+  },
+  {
+    "pattern": "segmentation fault|segfault|SIGSEGV",
+    "response": {
+      "sarcasm": "Segfault! 💀 البرنامج حاول يلمس ذاكرة مش بتاعته. ده زي واحد حاول يدخل شقة جاره بمفتاحه!",
+      "fix": "1. لو native addon، تأكد من إن الـ bindings متوافقة مع نسخة Node.\n2. جرب: `npm rebuild`\n3. امسح `node_modules` وثبّت من الأول."
+    }
+  },
+  {
+    "pattern": "Hydration failed|Text content does not match|Hydration mismatch",
+    "response": {
+      "sarcasm": "Hydration Error يا فندم! 💧😂 الـ server render حاجة والـ client render حاجة تانية. ده زي لما تطلب شاورما وتلاقي فلافل!",
+      "fix": "1. تأكد إن مفيش `Date.now()` أو `Math.random()` في الـ JSX.\n2. استخدم `useEffect` للحاجات اللي بتتغير على الـ client.\n3. لو Next.js، جرب `dynamic()` مع `ssr: false` للـ components اللي client-only."
+    }
+  },
+  {
+    "pattern": "Invalid hook call|Hooks can only be called inside|rendered more hooks than",
+    "response": {
+      "sarcasm": "يا عم الـ hooks مش لعبة! 🎣😤 فيه قواعد لازم تتبعها. مينفعش تنادي hook جوا condition أو loop!",
+      "fix": "1. الـ hooks لازم تتنادى في أول الـ component بس (مش جوا if أو for).\n2. تأكد إن عندك نسخة واحدة بس من React.\n3. جرب: `npm ls react` وشوف لو فيه نسخ مكررة."
+    }
+  },
+  {
+    "pattern": "TS\\d+|typescript|type.*is not assignable|Property.*does not exist on type",
+    "response": {
+      "sarcasm": "TypeScript زعلان منك! 😤 هو مش بيحبك تعمل any كده من غير ما تعرّف الـ types. إنت فاكره JavaScript بس بشخصية؟",
+      "fix": "1. اقرا رقم الـ error (TS2345, TS2322...) وابحث عليه.\n2. لو مش عارف الـ type، استخدم `as` أو عرّف interface.\n3. آخر حل (مش recommended): `// @ts-ignore` فوق السطر."
+    }
+  },
+  {
+    "pattern": "ERR_UNKNOWN_FILE_EXTENSION|Unknown file extension.*\\.ts|Cannot use import statement outside a module",
+    "response": {
+      "sarcasm": "Node.js مش فاهم الملف ده! 🤷 إنت بتحاول تشغّل TypeScript أو ESM من غير setup صح. ده زي ما تكلم حد فرنساوي بالصيني!",
+      "fix": "1. لو TypeScript: شغّل بـ `npx tsx file.ts` أو `npx ts-node file.ts`\n2. لو ESM: أضف `\"type\": \"module\"` في `package.json`\n3. أو غيّر الامتداد لـ `.mjs`"
+    }
+  },
+  {
+    "pattern": "EPERM|operation not permitted|cannot remove|being used by another process",
+    "response": {
+      "sarcasm": "الملف ده محجوز يا باشا! 🔐 فيه برنامج تاني ماسكه. هو إنت فاكر الملفات زي الكشري؟ كل واحد ياخد على قده!",
+      "fix": "1. سكّر أي editor مفتوح على الملف ده.\n2. على Windows: جرب تقفل الـ Terminal وتفتح واحد جديد.\n3. جرب تشغل كـ Administrator.\n4. أو استخدم: `npx rimraf node_modules` بدل `rm -rf`"
+    }
+  },
+  {
+    "pattern": "ERR_OSSL_EVP_UNSUPPORTED|digital envelope routines.*unsupported|ERR_OSSL",
+    "response": {
+      "sarcasm": "OpenSSL بيرفض يشتغل! 🔑😤 ده بيحصل كتير مع Node 17+ والمشاريع القديمة. الأمان والتوافقية في حرب!",
+      "fix": "1. الحل السريع: `set NODE_OPTIONS=--openssl-legacy-provider` (Windows)\n   أو `export NODE_OPTIONS=--openssl-legacy-provider` (Mac/Linux)\n2. الحل الأحسن: حدّث الـ webpack أو الـ build tool بتاعك.\n3. أو نزّل Node 16 LTS."
+    }
+  },
+  {
+    "pattern": "docker.*not found|docker.*not running|Cannot connect to the Docker daemon|docker daemon",
+    "response": {
+      "sarcasm": "Docker مش لاقيه يا صاحبي! 🐳😅 إما مش متثبّت، إما الـ daemon نايم. Docker Desktop فين؟",
+      "fix": "1. تأكد إن Docker متثبّت: `docker --version`\n2. شغّل Docker Desktop.\n3. على Linux: `sudo systemctl start docker`\n4. تأكد إن الـ user بتاعك في الـ docker group."
+    }
+  },
+  {
+    "pattern": "python.*not found|python3.*not found|pip.*not found|No module named|ModuleNotFoundError",
+    "response": {
+      "sarcasm": "Python مش لاقيه! 🐍😂 إما مش متثبّت، إما مش في الـ PATH. هو إنت فاكر الكمبيوتر بيعرف كل اللغات؟",
+      "fix": "1. على Windows: نزّل Python من python.org وخد بالك تفعّل 'Add to PATH'.\n2. جرب `python3` بدل `python`.\n3. لو `pip` مش شغال: `python -m pip install <package>`\n4. لـ ModuleNotFoundError: `pip install <module-name>`"
+    }
+  },
+  {
+    "pattern": "ssh.*Connection refused|ssh.*timed out|ssh.*Permission denied.*publickey|Host key verification failed",
+    "response": {
+      "sarcasm": "SSH مش عايز يفتحلك الباب! 🚪😤 إما السيرفر مقفول، إما الـ key بتاعك مش صح. ده زي ما تيجي البيت ومفيش مفتاح!",
+      "fix": "1. تأكد إن السيرفر شغال وقابل للوصول.\n2. تأكد من الـ SSH key: `ssh-keygen -t ed25519`\n3. أضف الـ key للسيرفر: `ssh-copy-id user@server`\n4. لو Host key verification: `ssh-keyscan server >> ~/.ssh/known_hosts`"
+    }
+  },
+  {
+    "pattern": "ERR_CONNECTION_REFUSED.*localhost|ECONNREFUSED.*127\\.0\\.0\\.1|ECONNREFUSED.*localhost",
+    "response": {
+      "sarcasm": "السيرفر المحلي (localhost) مش شغال! 😴 إنت بتحاول تكلم سيرفر نايم. هو إنت فتحت الـ backend ولا لأ؟",
+      "fix": "1. تأكد إن الـ backend server شغال (مثلاً `npm run dev` في فولدر الـ backend).\n2. تأكد من رقم الـ port.\n3. لو Docker: تأكد إن الـ container شغال: `docker ps`"
+    }
+  },
+  {
+    "pattern": "eslint|Parsing error.*eslint|no-unused-vars|no-undef|react-hooks/exhaustive-deps",
+    "response": {
+      "sarcasm": "ESLint مش مبسوط من الكود بتاعك! 👮😂 هو الـ linter ده زي المدرس اللي بيشيلك على كل حاجة!",
+      "fix": "1. اقرا اسم الـ rule اللي مخالفها.\n2. لو عايز تتجاهل سطر معين: `// eslint-disable-next-line rule-name`\n3. لو عايز تتجاهل ملف كامل: أضفه في `.eslintignore`\n4. أو عدّل إعدادات الـ rule في `.eslintrc`"
+    }
+  },
+  {
+    "pattern": "npm warn deprecated|npm WARN deprecated",
+    "response": {
+      "sarcasm": "فيه باكدجات قديمة زي العربية الـ 128! 🚗😂 الـ packages دي اتعمللها deprecation — يعني صاحبها سابها وراح!",
+      "fix": "1. عادي ده warning مش error، المشروع هيشتغل.\n2. بس ممكن تحدّث الباكدج لو فيه بديل.\n3. جرب: `npm outdated` عشان تشوف إيه اللي محتاج تحديث.\n4. `npm update` عشان تحدّث كل حاجة."
+    }
+  },
+  {
+    "pattern": "npm audit|vulnerabilities found|high severity|critical severity",
+    "response": {
+      "sarcasm": "فيه ثغرات أمنية يا هندسة! 🔓😬 الباكدجات بتاعتك فيها حفر أمنية زي الشوارع!",
+      "fix": "1. جرب: `npm audit fix` عشان يحل اللي يقدر عليه.\n2. لو فيه breaking changes: `npm audit fix --force` (خد بالك ممكن يكسر حاجة).\n3. اقرا الـ report وشوف لو الثغرة فعلاً relevant ليك."
+    }
+  },
+  {
+    "pattern": "vite.*error|Build failed|esbuild.*error|Rollup.*error|chunk.*error",
+    "response": {
+      "sarcasm": "الـ build tool (Vite/esbuild) وقع! 🏗️💥 فيه حاجة في الكود مش عاجباه. البناء وقف زي عمارة من غير خرسانة!",
+      "fix": "1. اقرا رسالة الـ error — عادةً فيها اسم الملف ورقم السطر.\n2. تأكد من الـ imports كلها صح.\n3. جرب: `npm run build -- --debug` لو متاح.\n4. امسح الكاش: `npx vite --force` أو امسح `node_modules/.vite`"
+    }
+  },
+  {
+    "pattern": "webpack.*error|Module build failed|loader.*error|Module not found.*webpack",
+    "response": {
+      "sarcasm": "Webpack اتعصب! 📦😤 فيه module أو loader مش عاجبه. Webpack ده زي الأستاذ اللي بيعقّد كل حاجة!",
+      "fix": "1. تأكد من إن كل الـ loaders (babel-loader, css-loader...) متثبّتين.\n2. اقرا اسم الـ module اللي مش لاقيه وثبّته.\n3. تأكد من `webpack.config.js` — خصوصاً الـ `resolve` و `module.rules`."
+    }
+  },
+  {
+    "pattern": "NEXT_NOT_FOUND|next.*not found|Error occurred prerendering|getServerSideProps.*error|getStaticProps.*error",
+    "response": {
+      "sarcasm": "Next.js مش عايز يتعاون! ⬛😅 فيه مشكلة في الـ server-side rendering. يا ريت pages كانت HTML ساكت!",
+      "fix": "1. تأكد من الـ return value في `getServerSideProps` أو `getStaticProps`.\n2. لازم ترجّع `{ props: {...} }`.\n3. تأكد إن الـ API routes اللي بتناديها شغالة.\n4. جرب: `npx next build` وشوف الأخطاء."
+    }
+  },
+  {
+    "pattern": "env.*undefined|process\\.env.*undefined|NEXT_PUBLIC|VITE_|REACT_APP_",
+    "response": {
+      "sarcasm": "الـ environment variable فاضي يا باشا! 🌍😂 إنت ناسي تعمل ملف `.env` ولا إيه؟ ده زي ما تروح الشغل وتنسى اللابتوب!",
+      "fix": "1. اعمل ملف `.env` في root المشروع.\n2. لو React: المتغير لازم يبدأ بـ `REACT_APP_`\n3. لو Vite: لازم يبدأ بـ `VITE_`\n4. لو Next.js: لو على الـ client لازم يبدأ بـ `NEXT_PUBLIC_`\n5. بعد ما تغيّر الـ `.env`، لازم تعمل restart للـ dev server."
+    }
+  },
+  {
+    "pattern": "JSON\\.parse|Unexpected token.*in JSON|JSON at position|JSON input",
+    "response": {
+      "sarcasm": "الـ JSON بتاعك مكسّر يا حبيبي! 🔨😂 فيه comma زيادة أو bracket ناقص. JSON مش بيسامح زي JavaScript!",
+      "fix": "1. ألصق الـ JSON في jsonlint.com وشوف فين الغلط.\n2. تأكد مفيش comma بعد آخر element.\n3. الـ keys لازم تكون بـ double quotes \"key\" مش 'key'.\n4. لو بتقرا من API - تأكد إن الرد فعلاً JSON مش HTML error page."
+    }
+  },
+  {
+    "pattern": "ENAMETOOLONG|path too long|filename too long",
+    "response": {
+      "sarcasm": "المسار طويل قوي يا باشا! 📏😂 ده زي عنوان بيت في شبرا — محدش بيعرف يوصله! Windows بالذات بيزهق من المسارات الطويلة.",
+      "fix": "1. حرّك المشروع لفولدر أقرب للـ root (مثلاً `C:\\dev\\`).\n2. على Windows: `git config --system core.longpaths true`\n3. أو فعّل Long Paths في Group Policy."
+    }
+  },
+  {
+    "pattern": "execution.*policy|cannot be loaded because running scripts is disabled|UnauthorizedAccess|PSSecurityException",
+    "response": {
+      "sarcasm": "PowerShell مش سايبك تشغل scripts! 🛡️😤 هو فاكر إنك هاكر ولا إيه؟ ده بس security policy على Windows.",
+      "fix": "1. افتح PowerShell كـ Administrator واكتب:\n   `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`\n2. أو استخدم cmd بدل PowerShell.\n3. أو شغّل الأمر كده: `powershell -ExecutionPolicy Bypass -File script.ps1`"
+    }
+  }
+]

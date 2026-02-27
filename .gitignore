@@ -1,0 +1,4 @@
+node_modules/
+.sa5er/
+*.log
+.env
