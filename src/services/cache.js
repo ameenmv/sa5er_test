@@ -42,6 +42,9 @@ function readCache() {
     return {};
   }
 }
+function clearCache() {
+  fs.writeFileSync(CACHE_PATH, '{}', 'utf-8');
+}
 
 /**
  * Writes the full cache object to disk.
